@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI in Documentation — What do we want?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-mode="do">
+
+  <header>
+    <div class="header-title">
+      <h1>AI in Documentation</h1>
+      <p class="header-sub">What do we want?</p>
+    </div>
+    <div class="mode-switch">
+      <span class="mode-label do-label">DO</span>
+      <label class="switch" aria-label="Toggle between DO and DON'T mode">
+        <input type="checkbox" id="modeToggle">
+        <span class="slider"></span>
+      </label>
+      <span class="mode-label dont-label">DON'T</span>
+    </div>
+  </header>
+
+  <nav>
+    <button class="tab-btn active" data-tab="submit">Submit</button>
+    <button class="tab-btn" data-tab="feed" id="feedTab" disabled>Feed</button>
+    <button class="tab-btn" data-tab="insights" id="insightsTab" disabled>Insights</button>
+  </nav>
+
+  <main>
+
+    <!-- Submit tab -->
+    <section id="tab-submit" class="tab">
+      <div class="form-container">
+        <p class="form-intro">Share your thoughts anonymously. Fill in one or both fields.</p>
+        <div class="form-group">
+          <label for="doInput">
+            <span class="label-icon do-icon">✅</span>
+            I want AI to…
+          </label>
+          <textarea id="doInput" placeholder="e.g. suggest improvements to my draft docs" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="dontInput">
+            <span class="label-icon dont-icon">🚫</span>
+            I don't want AI to…
+          </label>
+          <textarea id="dontInput" placeholder="e.g. replace human review entirely" rows="3"></textarea>
+        </div>
+        <div class="form-actions">
+          <button id="submitBtn">Submit</button>
+          <div id="submitMsg" class="submit-msg hidden"></div>
+        </div>
+        <p class="unlock-hint hidden" id="unlockHint">
+          Submitted! You can now explore the <strong>Feed</strong> and <strong>Insights</strong> tabs — or submit more responses.
+        </p>
+      </div>
+    </section>
+
+    <!-- Feed tab -->
+    <section id="tab-feed" class="tab hidden">
+      <div id="feedHeader" class="feed-header">
+        <span id="feedCount" class="count"></span>
+      </div>
+      <div id="feedList" class="card-list"></div>
+      <p id="feedEmpty" class="empty-state hidden">No responses yet in this mode.</p>
+    </section>
+
+    <!-- Insights tab -->
+    <section id="tab-insights" class="tab hidden">
+      <div class="insights-grid">
+        <div class="insight-panel">
+          <h2 id="cloudTitle">Word cloud</h2>
+          <div class="canvas-wrapper">
+            <canvas id="wordCloudCanvas"></canvas>
+            <p id="cloudEmpty" class="empty-state hidden">Not enough responses yet.</p>
+          </div>
+        </div>
+        <div class="insight-panel">
+          <h2>Top keywords</h2>
+          <div id="barChart" class="bar-chart"></div>
+          <p id="barEmpty" class="empty-state hidden">Not enough responses yet.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Firebase compat SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <!-- WordCloud2 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
+  <!-- Firebase config — gitignored, never committed. See firebase-config.example.js -->
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

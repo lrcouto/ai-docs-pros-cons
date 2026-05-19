@@ -1,0 +1,16 @@
+// Copy this file to firebase-config.js and fill in your values.
+// firebase-config.js is gitignored — never commit the real keys.
+//
+// For GitHub Pages deployment, add each value as a repository secret
+// (Settings → Secrets and variables → Actions) and the deploy workflow
+// will generate firebase-config.js automatically.
+
+window.firebaseConfig = {
+  apiKey:            "YOUR_API_KEY",
+  authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
+  databaseURL:       "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
+  projectId:         "YOUR_PROJECT_ID",
+  storageBucket:     "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId:             "YOUR_APP_ID",
+};
