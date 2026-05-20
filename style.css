@@ -170,7 +170,7 @@ main {
   padding: 2rem 1.5rem;
 }
 
-.tab.hidden { display: none; }
+.tab.hidden { display: none !important; }
 
 #tab-submit {
   min-height: calc(100vh - 120px);
