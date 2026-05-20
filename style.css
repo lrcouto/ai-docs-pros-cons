@@ -170,13 +170,17 @@ main {
   padding: 2rem 1.5rem;
 }
 
-.tab.hidden { display: none !important; }
+.tab.hidden { display: none; }
 
 #tab-submit {
   min-height: calc(100vh - 120px);
+}
+
+.submit-center {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: inherit;
   padding-bottom: 18vh;
 }
 
