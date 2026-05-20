@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI in Documentation — What do we want?</title>
+  <title>AI in Documentation</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body data-mode="do">
@@ -11,7 +11,6 @@
   <header>
     <div class="header-title">
       <h1>AI in Documentation</h1>
-      <p class="header-sub">What do we want?</p>
     </div>
     <div class="mode-switch">
       <span class="mode-label do-label">DO</span>
@@ -34,20 +33,25 @@
     <!-- Submit tab -->
     <section id="tab-submit" class="tab">
       <div class="form-container">
-        <p class="form-intro">Share your thoughts anonymously. Fill in one or both fields.</p>
-        <div class="form-group">
-          <label for="doInput">
-            <span class="label-icon do-icon">✅</span>
-            I want AI to…
-          </label>
-          <textarea id="doInput" placeholder="e.g. suggest improvements to my draft docs" rows="3"></textarea>
+        <div class="form-description">
+          <p>AI can make writing documentation easier and more efficient. But where exactly does it add value, and where could it cause more harm than good?</p>
+          <p>Share your opinion anonymously on where AI should and shouldn't be used in documentation. Fill in one or both fields.</p>
         </div>
-        <div class="form-group">
-          <label for="dontInput">
-            <span class="label-icon dont-icon">🚫</span>
-            I don't want AI to…
-          </label>
-          <textarea id="dontInput" placeholder="e.g. replace human review entirely" rows="3"></textarea>
+        <div class="form-fields">
+          <div class="form-group">
+            <label for="doInput">
+              <span class="label-icon do-icon">✅</span>
+              I want AI to…
+            </label>
+            <textarea id="doInput" placeholder="e.g. suggest improvements to my draft docs" rows="5"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="dontInput">
+              <span class="label-icon dont-icon">🚫</span>
+              I don't want AI to…
+            </label>
+            <textarea id="dontInput" placeholder="e.g. replace human review entirely" rows="5"></textarea>
+          </div>
         </div>
         <div class="form-actions">
           <button id="submitBtn">Submit</button>

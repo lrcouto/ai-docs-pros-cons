@@ -13,23 +13,29 @@
 /* ── Mode-driven tokens ─────────────────────────────────────── */
 
 body[data-mode="do"] {
-  --bg:            #f0faf4;
-  --accent:        #2e7d50;
-  --accent-hover:  #236040;
-  --accent-light:  #c6e9d4;
-  --header-bg:     #2e7d50;
-  --card-border:   #b2dfc4;
+  --bg:            #111a14;
+  --accent:        #4caf7a;
+  --accent-hover:  #3d9e67;
+  --accent-light:  #1c3025;
+  --header-bg:     #111a14;
+  --card-bg:       #182212;
+  --card-border:   #2a4035;
+  --text:          #ddeee5;
+  --text-muted:    #7a9e8a;
   --do-opacity:    1;
   --dont-opacity:  0.45;
 }
 
 body[data-mode="dont"] {
-  --bg:            #fff5f5;
-  --accent:        #c0392b;
-  --accent-hover:  #a02a1e;
-  --accent-light:  #fad4d0;
-  --header-bg:     #c0392b;
-  --card-border:   #f5b0ab;
+  --bg:            #1a1111;
+  --accent:        #e05444;
+  --accent-hover:  #c0392b;
+  --accent-light:  #2e1a1a;
+  --header-bg:     #1a1111;
+  --card-bg:       #221818;
+  --card-border:   #3f2828;
+  --text:          #eedede;
+  --text-muted:    #9e7a7a;
   --do-opacity:    0.45;
   --dont-opacity:  1;
 }
@@ -39,16 +45,16 @@ body[data-mode="dont"] {
 body {
   font-family: var(--font);
   background: var(--bg);
-  color: #1a1a1a;
+  color: var(--text);
   min-height: 100vh;
-  transition: background var(--transition);
+  transition: background var(--transition), color var(--transition);
 }
 
 /* ── Header ─────────────────────────────────────────────────── */
 
 header {
   background: var(--header-bg);
-  color: #fff;
+  color: var(--text);
   padding: 1.1rem 2rem;
   display: flex;
   align-items: center;
@@ -83,7 +89,7 @@ header {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  color: #fff;
+  color: var(--text);
   transition: opacity var(--transition);
   user-select: none;
 }
@@ -135,8 +141,8 @@ input:checked + .slider::before {
 /* ── Nav ─────────────────────────────────────────────────────── */
 
 nav {
-  background: #fff;
-  border-bottom: 2px solid var(--accent-light);
+  background: var(--bg);
+  border-bottom: 1px solid var(--card-border);
   padding: 0 1.5rem;
   display: flex;
   transition: border-color var(--transition);
@@ -149,10 +155,10 @@ nav {
   font-family: var(--font);
   font-size: 0.95rem;
   font-weight: 500;
-  color: #777;
+  color: var(--text-muted);
   cursor: pointer;
   border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
+  margin-bottom: -1px;
   transition: color 0.2s, border-color 0.2s;
 }
 
@@ -167,7 +173,7 @@ nav {
 }
 
 .tab-btn:disabled {
-  color: #ccc;
+  color: var(--card-border);
   cursor: not-allowed;
 }
 
@@ -184,9 +190,37 @@ main {
 /* ── Submit form ─────────────────────────────────────────────── */
 
 .form-intro {
-  color: #555;
+  color: var(--text-muted);
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
+}
+
+.form-description {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+.form-description p:first-child {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text);
+  text-wrap: balance;
+}
+
+.form-description p:last-child {
+  font-size: 0.85rem;
+  text-wrap: balance;
+}
+
+.form-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
 }
 
 .form-container {
@@ -204,7 +238,7 @@ main {
 .form-group label {
   font-size: 1.05rem;
   font-weight: 600;
-  color: #222;
+  color: var(--text);
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -214,14 +248,15 @@ main {
 
 textarea {
   padding: 0.8rem 1rem;
-  border: 2px solid #ddd;
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
   font-family: var(--font);
   font-size: 1rem;
   line-height: 1.55;
   resize: vertical;
   transition: border-color 0.2s;
-  background: #fff;
+  background: var(--card-bg);
+  color: var(--text);
 }
 
 textarea:focus {
@@ -270,7 +305,7 @@ textarea:focus {
 
 .unlock-hint {
   background: var(--accent-light);
-  color: #222;
+  color: var(--text);
   border-radius: var(--radius);
   padding: 0.9rem 1.1rem;
   font-size: 0.95rem;
@@ -288,7 +323,7 @@ textarea:focus {
 
 .count {
   font-size: 0.95rem;
-  color: #666;
+  color: var(--text-muted);
   font-weight: 500;
 }
 
@@ -299,13 +334,13 @@ textarea:focus {
 }
 
 .card {
-  background: #fff;
+  background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   padding: 0.9rem 1.15rem;
   font-size: 1rem;
   line-height: 1.55;
-  transition: border-color var(--transition);
+  transition: border-color var(--transition), background var(--transition);
   animation: slideIn 0.25s ease;
 }
 
@@ -325,7 +360,7 @@ textarea:focus {
 .insight-panel h2 {
   font-size: 1rem;
   font-weight: 700;
-  color: #333;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 1rem;
@@ -333,12 +368,12 @@ textarea:focus {
 
 .canvas-wrapper {
   position: relative;
-  background: #fff;
+  background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   overflow: hidden;
   min-height: 280px;
-  transition: border-color var(--transition);
+  transition: border-color var(--transition), background var(--transition);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -369,14 +404,14 @@ textarea:focus {
   font-size: 0.88rem;
   font-weight: 500;
   text-align: right;
-  color: #333;
+  color: var(--text);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .bar-track {
-  background: #eee;
+  background: var(--card-border);
   border-radius: 4px;
   height: 18px;
   overflow: hidden;
@@ -392,14 +427,14 @@ textarea:focus {
 
 .bar-count {
   font-size: 0.78rem;
-  color: #888;
+  color: var(--text-muted);
   text-align: right;
 }
 
 /* ── Empty state ─────────────────────────────────────────────── */
 
 .empty-state {
-  color: #999;
+  color: var(--text-muted);
   font-size: 0.95rem;
   text-align: center;
   padding: 2rem 0;
@@ -415,4 +450,5 @@ textarea:focus {
   main { padding: 1.5rem 1rem; }
   .bar-row { grid-template-columns: 80px 1fr 26px; }
   .mode-label { font-size: 0.75rem; }
+  .form-fields { grid-template-columns: 1fr; }
 }

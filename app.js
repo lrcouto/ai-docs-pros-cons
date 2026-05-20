@@ -125,9 +125,9 @@ db.ref('submissions').on('value', snapshot => {
 function renderFeed() {
   const mode     = currentMode();
   const filtered = allSubmissions.filter(s => s.type === mode);
-  const label    = mode === 'do' ? 'DO' : "DON'T";
+  const label    = mode === 'do' ? 'I want AI to' : "I don't want AI to";
 
-  feedCount.textContent = `${filtered.length} ${label} response${filtered.length !== 1 ? 's' : ''}`;
+  feedCount.textContent = `${filtered.length} "${label}" response${filtered.length !== 1 ? 's' : ''}`;
 
   if (filtered.length === 0) {
     feedList.innerHTML = '';
@@ -178,9 +178,9 @@ function tokenize(entries) {
 function renderInsights() {
   const mode     = currentMode();
   const filtered = allSubmissions.filter(s => s.type === mode);
-  const label    = mode === 'do' ? 'DO' : "DON'T";
+  const label    = mode === 'do' ? 'I want AI to' : "I don't want AI to";
 
-  cloudTitle.textContent = `${label} — word cloud`;
+  cloudTitle.textContent = `"${label}" — word cloud`;
 
   const words = tokenize(filtered);
 
