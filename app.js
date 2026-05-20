@@ -44,14 +44,21 @@ function isTabActive(name) {
   return !document.getElementById('tab-' + name).classList.contains('hidden');
 }
 
+const allTabs = document.querySelectorAll('.tab');
+
+function showTab(name) {
+  allTabs.forEach(t => { t.style.display = 'none'; t.classList.add('hidden'); });
+  const el = document.getElementById('tab-' + name);
+  el.style.display = 'block';
+  el.classList.remove('hidden');
+}
+
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     if (btn.disabled) return;
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t => t.classList.add('hidden'));
     btn.classList.add('active');
-    const section = document.getElementById('tab-' + btn.dataset.tab);
-    section.classList.remove('hidden');
+    showTab(btn.dataset.tab);
     if (btn.dataset.tab === 'feed')     renderFeed();
     if (btn.dataset.tab === 'insights') renderInsights();
   });
