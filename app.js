@@ -6,19 +6,16 @@ const db = firebase.database();
 // ── State ─────────────────────────────────────────────────────
 
 let allSubmissions = [];
-let hasSubmitted = sessionStorage.getItem('hasSubmitted') === 'true';
 
 // ── DOM refs ──────────────────────────────────────────────────
 
 const body          = document.body;
 const modeToggle    = document.getElementById('modeToggle');
-const feedTabBtn    = document.getElementById('feedTab');
-const insightsTabBtn= document.getElementById('insightsTab');
+
 const doInput       = document.getElementById('doInput');
 const dontInput     = document.getElementById('dontInput');
 const submitBtn     = document.getElementById('submitBtn');
 const submitMsg     = document.getElementById('submitMsg');
-const unlockHint    = document.getElementById('unlockHint');
 const feedList      = document.getElementById('feedList');
 const feedCount     = document.getElementById('feedCount');
 const feedEmpty     = document.getElementById('feedEmpty');
@@ -64,13 +61,6 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
-function unlockTabs() {
-  feedTabBtn.disabled = false;
-  insightsTabBtn.disabled = false;
-  unlockHint.classList.remove('hidden');
-}
-
-if (hasSubmitted) unlockTabs();
 
 // ── Submit ────────────────────────────────────────────────────
 
@@ -94,11 +84,6 @@ submitBtn.addEventListener('click', async () => {
     doInput.value   = '';
     dontInput.value = '';
     showMsg('Submitted!', 'success');
-    if (!hasSubmitted) {
-      sessionStorage.setItem('hasSubmitted', 'true');
-      hasSubmitted = true;
-      unlockTabs();
-    }
   } catch (err) {
     showMsg('Could not submit — check your Firebase config.', 'error');
     console.error(err);
