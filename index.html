@@ -9,9 +9,11 @@
 <body data-mode="do">
 
   <header>
-    <div class="header-title">
-      <h1>AI in Documentation</h1>
-    </div>
+    <nav>
+      <button class="tab-btn active" data-tab="submit">Submit</button>
+      <button class="tab-btn" data-tab="feed" id="feedTab" disabled>Feed</button>
+      <button class="tab-btn" data-tab="insights" id="insightsTab" disabled>Insights</button>
+    </nav>
     <div class="mode-switch">
       <span class="mode-label do-label">DO</span>
       <label class="switch" aria-label="Toggle between DO and DON'T mode">
@@ -22,19 +24,13 @@
     </div>
   </header>
 
-  <nav>
-    <button class="tab-btn active" data-tab="submit">Submit</button>
-    <button class="tab-btn" data-tab="feed" id="feedTab" disabled>Feed</button>
-    <button class="tab-btn" data-tab="insights" id="insightsTab" disabled>Insights</button>
-  </nav>
-
   <main>
 
     <!-- Submit tab -->
     <section id="tab-submit" class="tab">
       <div class="form-container">
         <div class="form-description">
-          <p>AI can make writing documentation easier and more efficient. But where exactly does it add value, and where could it cause more harm than good?</p>
+          <p><span class="nowrap">AI can make writing documentation easier and more efficient.</span><br><span class="nowrap">But where exactly does it add value, and where could it cause more harm than good?</span></p>
           <p>Share your opinion anonymously on where AI should and shouldn't be used in documentation. Fill in one or both fields.</p>
         </div>
         <div class="form-fields">

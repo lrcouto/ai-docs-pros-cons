@@ -54,25 +54,12 @@ body {
 
 header {
   background: var(--header-bg);
-  color: var(--text);
-  padding: 1.1rem 2rem;
+  padding: 0 2rem;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
-  transition: background var(--transition);
-  gap: 1rem;
-}
-
-.header-title h1 {
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.header-sub {
-  font-size: 0.85rem;
-  opacity: 0.8;
-  margin-top: 1px;
+  border-bottom: 1px solid var(--card-border);
+  transition: background var(--transition), border-color var(--transition);
 }
 
 /* ── Mode switch ─────────────────────────────────────────────── */
@@ -82,6 +69,7 @@ header {
   align-items: center;
   gap: 0.65rem;
   flex-shrink: 0;
+  padding: 0 0.25rem;
 }
 
 .mode-label {
@@ -141,15 +129,13 @@ input:checked + .slider::before {
 /* ── Nav ─────────────────────────────────────────────────────── */
 
 nav {
-  background: var(--bg);
-  border-bottom: 1px solid var(--card-border);
-  padding: 0 1.5rem;
   display: flex;
-  transition: border-color var(--transition);
+  align-items: stretch;
 }
 
 .tab-btn {
-  padding: 0.8rem 1.4rem;
+  padding: 0 1.2rem;
+  height: 48px;
   border: none;
   background: none;
   font-family: var(--font);
@@ -157,8 +143,7 @@ nav {
   font-weight: 500;
   color: var(--text-muted);
   cursor: pointer;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -1px;
+  border-bottom: 2px solid transparent;
   transition: color 0.2s, border-color 0.2s;
 }
 
@@ -180,12 +165,20 @@ nav {
 /* ── Tabs ────────────────────────────────────────────────────── */
 
 main {
-  max-width: 760px;
+  max-width: 820px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
 }
 
 .tab.hidden { display: none; }
+
+#tab-submit {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 18vh;
+}
 
 /* ── Submit form ─────────────────────────────────────────────── */
 
@@ -198,7 +191,7 @@ main {
 .form-description {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2.5rem;
   color: var(--text-muted);
   line-height: 1.6;
   padding-bottom: 0.5rem;
@@ -206,11 +199,15 @@ main {
 }
 
 .form-description p:first-child {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: 1.85rem;
+  font-weight: 600;
   color: var(--text);
-  text-wrap: balance;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.nowrap { white-space: nowrap; }
 
 .form-description p:last-child {
   font-size: 0.85rem;
@@ -227,6 +224,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
+  width: 100%;
 }
 
 .form-group {
